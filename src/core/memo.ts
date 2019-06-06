@@ -10,7 +10,6 @@ export type Memo = Array<[any[], any]>
 
 const store = new WeakMap<Function, Memo>()
 
-// fn no call or apply, use =>.
 export const memo = <T extends Function>(fn: T, thisArg?: any): T => <any>((
     ...args: any[]
   ) => {
