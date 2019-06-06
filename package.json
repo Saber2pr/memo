@@ -1,0 +1,27 @@
+{
+  "name": "@saber2pr/memo",
+  "version": "0.0.1",
+  "description": "memorizer.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saber2pr/memo.git"
+  },
+  "author": "saber2pr",
+  "license": "ISC",
+  "files": [
+    "lib/core/*",
+    "lib/index.*"
+  ],
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "node ./lib/test/test.js",
+    "start": "tsc --watch"
+  },
+  "keywords": [
+    "memorize",
+    "fp"
+  ],
+  "devDependencies": {
+    "typescript": "^3.4.3"
+  }
+}
