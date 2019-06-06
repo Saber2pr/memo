@@ -7,9 +7,7 @@
 export const diff = <T extends any[]>(a: T, b: T) => {
   let i = a.length > b.length ? a.length : b.length
 
-  while (i--) {
-    if (a[i] !== b[i]) return false
-  }
+  while (i--) if (a[i] !== b[i]) return false
 
   return true
 }
