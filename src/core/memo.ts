@@ -4,11 +4,13 @@
  * @Last Modified by: saber2pr
  * @Last Modified time: 2019-06-06 13:44:52
  */
-import { diff } from './diff'
+import { diff } from "./diff"
 
 export type Memo = Array<[any[], any]>
 
 const store = new WeakMap<Function, Memo>()
+
+const MAX_SIZE = 10
 
 export const memo = <T extends Function>(fn: T, thisArg?: any): T => <any>((
     ...args: any[]
@@ -24,6 +26,8 @@ export const memo = <T extends Function>(fn: T, thisArg?: any): T => <any>((
 
     meta.push([args, O])
     store.set(fn, meta)
+
+    while (meta.length >= MAX_SIZE) meta.shift()
 
     return O
   })
