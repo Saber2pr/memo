@@ -1,6 +1,6 @@
 {
   "name": "@saber2pr/memo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "memorizer.",
   "repository": {
     "type": "git",
@@ -23,5 +23,6 @@
   ],
   "devDependencies": {
     "typescript": "^3.4.3"
-  }
+  },
+  "dependencies": {}
 }
