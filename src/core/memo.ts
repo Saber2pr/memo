@@ -10,11 +10,13 @@ export type Memo = Array<[any[], any]>
 
 const store = new WeakMap<Function, Memo>()
 
-const MAX_SIZE = 10
+const MAX_SIZE_DEFAULT = 10
 
-export const memo = <T extends Function>(fn: T, thisArg?: any): T => <any>((
-    ...args: any[]
-  ) => {
+export const memo = <T extends Function>(
+  fn: T,
+  thisArg?: any,
+  maxSize = MAX_SIZE_DEFAULT
+): T => <any>((...args: any[]) => {
     const meta = store.get(fn) || []
 
     if (meta.length) {
@@ -27,7 +29,7 @@ export const memo = <T extends Function>(fn: T, thisArg?: any): T => <any>((
     meta.push([args, O])
     store.set(fn, meta)
 
-    while (meta.length >= MAX_SIZE) meta.shift()
+    while (meta.length >= maxSize) meta.shift()
 
     return O
   })
